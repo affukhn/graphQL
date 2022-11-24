@@ -1,0 +1,42 @@
+type Query
+{
+   FirstQuery: String
+   lastName: String
+   FirstName(sampleRequest : SampleRequest) : String
+   student(id : Int) : StudentResponse
+}
+
+input SampleRequest
+{
+    FirstName : String
+    lastName :String
+}
+
+type StudentResponse
+{
+     id: Int
+     firstName:String
+     lastName:String
+     email:String
+     street:String
+     city:String
+     learningSubject(subjectNameFilter:SubjectNameFilter) :[SubjectResponse]
+     FullName:String
+     
+     
+}
+
+type SubjectResponse{
+   
+      id:Int
+      subject_name:String
+      marks_obtained:Float
+}
+
+enum SubjectNameFilter
+{
+    All,
+	java,
+	mysql,
+	MongoDB
+}
